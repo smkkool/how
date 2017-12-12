@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "747226982398",
+    "project_id": "firebase-howapp"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747226982398:android:5d95410dcd285bd4",
+        "android_client_info": {
+          "package_name": "minhpvn.com.swipedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747226982398-lfvlvnes7nh7elqpn4nqt1m9i7ef732o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "minhpvn.com.swipedemo",
+            "certificate_hash": "53fa471fbe7af83814897026b026edd662de8beb"
+          }
+        },
+        {
+          "client_id": "747226982398-04pc2c2av9l8qocrva8r2jv18rffbfqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC75olelDHoM2TYfuAdQyr8ZGO7LPyvFlo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
