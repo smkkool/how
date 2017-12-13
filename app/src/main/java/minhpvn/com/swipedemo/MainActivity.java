@@ -46,6 +46,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import fragment.BarChartFragment;
 import fragment.BaseFragment;
+import fragment.TabMainFragment;
 
 public class MainActivity extends AppCompatActivity
         implements GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener {
@@ -208,19 +209,27 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(MainActivity.this, "switch Home", Toast.LENGTH_SHORT).show();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.bar_chart, new BaseFragment());
+            fragmentTransaction.replace(R.id.bar_chart, new BaseFragment());
             fragmentTransaction.commit();
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(MainActivity.this, "switch ChartActivity", Toast.LENGTH_SHORT).show();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.bar_chart, new BarChartFragment());
+            fragmentTransaction.replace(R.id.bar_chart, new BarChartFragment());
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        } else if (id == R.id.nav_google_map) {
+            Toast.makeText(MainActivity.this, "switch Google Map", Toast.LENGTH_SHORT).show();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.bar_chart, new MapsActivity());
+            fragmentTransaction.commit();
+        } else if (id == R.id.nav_tabs) {
+            Toast.makeText(MainActivity.this, "switch Tab Layout", Toast.LENGTH_SHORT).show();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.bar_chart, new TabMainFragment());
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

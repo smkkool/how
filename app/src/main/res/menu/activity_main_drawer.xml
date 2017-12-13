@@ -13,16 +13,16 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Chart Example" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_google_map"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Googlep Map" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_tabs"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Tabs" />
         <item
             android:id="@+id/log_out"
-            android:icon="@drawable/common_google_signin_btn_text_light_disabled"
+            android:icon="@drawable/messenger_button_white_bg_selector"
             android:title="Logout" />
     </group>
 

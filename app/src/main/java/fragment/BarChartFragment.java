@@ -36,7 +36,9 @@ public class BarChartFragment extends Fragment {
         ((MainActivity) getActivity()).setActionBarTitle("Bar Chart");
         BarData data = new BarData(getXAxisValues(), getDataSet());
         chart.setData(data);
-        chart.setDescription(String.valueOf(R.string.Year));
+        chart.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        chart.setDescriptionTextSize(40f);
+        chart.setDescription("NĂM");
         chart.animateXY(2000, 2000);
         chart.invalidate();
         return view;
@@ -72,9 +74,9 @@ public class BarChartFragment extends Fragment {
         BarEntry v2e6 = new BarEntry(80.000f, 5); // Jun
         valueSet2.add(v2e6);
 
-        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "2016");
+        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "NĂM 2016");
         barDataSet1.setColor(Color.rgb(0, 155, 0));
-        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "2017");
+        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "NĂM 2017");
 //        barDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
         barDataSet2.setColor(Color.rgb(155, 10, 0));
         dataSets = new ArrayList<>();
@@ -84,12 +86,12 @@ public class BarChartFragment extends Fragment {
     }
     private ArrayList<String> getXAxisValues() {
         ArrayList<String> xAxis = new ArrayList<>();
-        xAxis.add("JAN");
-        xAxis.add("FEB");
-        xAxis.add("MAR");
-        xAxis.add("APR");
-        xAxis.add("MAY");
-        xAxis.add("JUN");
+        xAxis.add("THÁNG 2");
+        xAxis.add("THÁNG 3");
+        xAxis.add("THÁNG 4");
+        xAxis.add("THÁNG 5");
+        xAxis.add("THÁNG 6");
+        xAxis.add("THÁNG 7");
         return xAxis;
     }
 
