@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView,Google
     @BindView(R.id.password)
     EditText password;
     @BindView(R.id.btnLogin)
-    Button btnLogin;
+    TextView btnLogin;
     LoginPresenter loginPresenter;
     @BindView(R.id.login_button)
     LoginButton fbLoginButton;

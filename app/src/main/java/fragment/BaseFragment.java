@@ -22,6 +22,7 @@ public class BaseFragment extends Fragment {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.base_fragment,container,false);
         ((MainActivity) getActivity()).setActionBarTitle("Home");
+        setHasOptionsMenu(false);
         return view;
     }
 }

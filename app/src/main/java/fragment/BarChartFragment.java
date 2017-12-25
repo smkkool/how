@@ -41,6 +41,7 @@ public class BarChartFragment extends Fragment {
         chart.setDescription("NĂM");
         chart.animateXY(2000, 2000);
         chart.invalidate();
+        setHasOptionsMenu(false);
         return view;
     }
     private ArrayList<BarDataSet> getDataSet() {

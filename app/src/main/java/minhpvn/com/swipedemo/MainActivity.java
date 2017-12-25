@@ -1,5 +1,6 @@
 package minhpvn.com.swipedemo;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +24,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +53,8 @@ import fragment.BarChartFragment;
 import fragment.BaseFragment;
 import fragment.TabMainFragment;
 
+import static fragment.TabThreeFragment.storeDatabase;
+
 public class MainActivity extends AppCompatActivity
         implements GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener {
     //    @Nullable
@@ -67,6 +74,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
         ButterKnife.bind(this);
@@ -111,6 +121,8 @@ public class MainActivity extends AppCompatActivity
         idFB = getIntent().getExtras().getString("googleEmail");
         txtNameHeader.setText(nameFB);
         txtIdHeader.setText(idFB);
+
+
     }
 
     public void setActionBarTitle(String title) {
@@ -181,7 +193,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -285,4 +297,6 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
+
 }

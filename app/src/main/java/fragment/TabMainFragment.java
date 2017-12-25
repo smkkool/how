@@ -40,6 +40,7 @@ public class TabMainFragment extends Fragment {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
         tabLayout.setupWithViewPager(mViewPager);
         ((MainActivity) getActivity()).setActionBarTitle("Tabs");
+        setHasOptionsMenu(false);
         return view;
     }
 
@@ -78,7 +79,7 @@ public class TabMainFragment extends Fragment {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "LISTS";
+                    return "JSON Language";
                 case 1:
                     return "COMMENT";
                 case 2:

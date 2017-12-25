@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "747226982398",
-    "project_id": "firebase-howapp"
+    "firebase_url": "https://fir-howapp.firebaseio.com",
+    "project_id": "firebase-howapp",
+    "storage_bucket": "firebase-howapp.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,10 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "747226982398-oekq2je3n4pqb8h03a81sncm61jeuqs0.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "747226982398-lfvlvnes7nh7elqpn4nqt1m9i7ef732o.apps.googleusercontent.com",
           "client_type": 1,
@@ -35,11 +41,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747226982398-oekq2je3n4pqb8h03a81sncm61jeuqs0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

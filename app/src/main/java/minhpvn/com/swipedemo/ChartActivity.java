@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Menu;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -30,6 +31,8 @@ public class ChartActivity extends Activity {
         chart.setDescription("Year");
         chart.animateXY(2000, 2000);
         chart.invalidate();
+
+
     }
     private ArrayList<BarDataSet> getDataSet() {
         ArrayList<BarDataSet> dataSets = null;
@@ -81,5 +84,11 @@ public class ChartActivity extends Activity {
         xAxis.add("THÁNG 6");
         xAxis.add("THÁNG 7");
         return xAxis;
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return false;
     }
 }
