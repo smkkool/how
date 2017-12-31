@@ -38,5 +38,8 @@ dependencies {
     compile 'com.android.volley:volley:1.1.0'
     compile 'com.google.firebase:firebase-core:11.8.0'
     compile 'com.google.firebase:firebase-messaging:11.8.0'
+    compile 'com.airbnb.android:lottie:2.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
 }
 apply plugin: 'com.google.gms.google-services'

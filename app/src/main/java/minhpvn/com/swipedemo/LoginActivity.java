@@ -2,12 +2,16 @@ package minhpvn.com.swipedemo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -72,7 +76,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView,Google
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
+        // Making notification bar transparent
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
         setContentView(R.layout.login);
+        // making notification bar transparent
+        changeStatusBarColor();
         ButterKnife.bind(this);
         callbackManager = CallbackManager.Factory.create();
 
@@ -209,6 +219,7 @@ private void handleSignInResult(GoogleSignInResult result) {
         Bundle bundleGoogle = new Bundle();
         bundleGoogle.putString("googleName",acct.getDisplayName());
         bundleGoogle.putString("googleEmail",acct.getEmail());
+        bundleGoogle.putString("googlePhoto",acct.getPhotoUrl().toString());
         intent.putExtras(bundleGoogle);
 //        mStatusTextView.setText(acct.getDisplayName());
         startActivity(intent);
@@ -259,5 +270,22 @@ private void handleSignInResult(GoogleSignInResult result) {
                         Toast.makeText(LoginActivity.this, "Signed out", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    /**
+     * Making notification bar transparent
+     */
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
     }
 }

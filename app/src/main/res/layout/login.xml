@@ -4,43 +4,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/login_1"
+    android:background="@drawable/welcome2"
     android:gravity="center"
     android:orientation="vertical">
 
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/diankids" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="150dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="star.json"
+            app:lottie_loop="true" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="450dp"
         android:layout_marginTop="2dp"
-        android:background="#ffffff"
         android:orientation="vertical"
         android:padding="40dp">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <EditText
             android:id="@+id/userName"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Enter your username"
-            android:textColor="#ffffff"
-            android:textColorHint="#e1dede" />
+            android:textColor="@color/colorLightDarkOrange"
+            android:textSize="15dp"
+            android:textColorHint="@color/colorLightDarkOrange"
+            android:visibility="gone"
+            />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <EditText
             android:id="@+id/password"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="******"
+            android:textSize="15dp"
             android:inputType="textPassword"
-            android:textColor="#ffffff"
-            android:textColorHint="#e1dede"
+            android:textColor="@color/colorLightDarkOrange"
+            android:textColorHint="@color/colorLightDarkOrange"
+            android:visibility="gone"
 
             android:textStyle="bold" />
 
@@ -53,7 +70,9 @@
             android:textAllCaps="false"
             android:textColor="#868686"
             android:textSize="16dp"
+            android:visibility="gone"
             android:textStyle="bold" />
+
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
@@ -61,7 +80,8 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="15dp" />
+
+            android:layout_marginTop="145dp" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"

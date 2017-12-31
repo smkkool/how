@@ -3,6 +3,9 @@ package minhpvn.com.swipedemo;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -28,9 +31,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
@@ -66,18 +71,23 @@ public class MainActivity extends AppCompatActivity
     String usernameFB;
     String nameFB;
     String idFB;
+    ImageView imageViewHeader;
     static GoogleApiClient mGoogleApiClient;
     BarChartFragment barChartFragment;
     AppBarLayout appBarLayout;
     private boolean clickTwice;
+    Uri urigg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // Making notification bar transparent
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
         setContentView(R.layout.activity_main);
+        // making notification bar transparent
+        changeStatusBarColor();
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -106,7 +116,7 @@ public class MainActivity extends AppCompatActivity
 //        View header = LayoutInflater.from(this).inflate(R.layout.nav_header_main, null); //navigation header menu layout
         txtNameHeader = (TextView) header.findViewById(R.id.txtNameHeader);
         txtIdHeader = (TextView) header.findViewById(R.id.txtIdHeader);
-
+        imageViewHeader = (ImageView) header.findViewById(R.id.imageViewHeader);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -119,9 +129,12 @@ public class MainActivity extends AppCompatActivity
 
         nameFB = getIntent().getExtras().getString("googleName");
         idFB = getIntent().getExtras().getString("googleEmail");
+        urigg = Uri.parse(getIntent().getExtras().getString("googlePhoto"));
         txtNameHeader.setText(nameFB);
         txtIdHeader.setText(idFB);
-
+        Glide.with(this)
+                .load(urigg)
+                .into(imageViewHeader);
 
     }
 
@@ -298,5 +311,15 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Making notification bar transparent
+     */
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
+    }
 
 }
